@@ -1,0 +1,21 @@
+%div{:id=>"menu"}
+  - if @user == nil
+    %form{:id => "register", :method => "post", :action => "/register"}
+      %label Username
+      %input{:name => "username", :type => "text"}
+      %label Real Name
+      %input{:name => "realname", :type => "text"}
+      %label Email 
+      %input{:name => "email", :type => "text"}
+      %label Location 
+      %input{:name => "location", :type => "text"}
+      %label Password
+      %input{:name => "password", :type => "password"}
+      %label Password Confirmation
+      %input{:name => "password2", :type => "password"}
+      %br
+      %input{:type => "submit", :value => "Submit"}      
+    %a{:href => "/forgot_password"} Forgot Password?
+  - else
+    TEST
+  

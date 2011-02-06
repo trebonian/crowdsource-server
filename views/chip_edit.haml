@@ -1,0 +1,30 @@
+%div{:id=> "edit_chip"}
+  %form{:id => "chip_form", :method => "post", :action => "/admin/chip/edit"}
+    %h2  
+      %a{:href => "/admin/chip/delete/#{@target.id}"} Delete this chip
+    %h2 Edit #{@target.name}
+    %input{:name => "id", :value => @target.id, :type => "hidden"}
+
+
+    %label Name
+    %input{:name => "chip[name]", :value => @target.name,   :type => "textbox"}
+    %label wikiURL
+    %input{:name => "chip[wikiURL]", :value => @target.wikiURL, :type => "textbox"}
+    %label description
+    %input{:name => "chip[description]", :value => @target.description, :type => "textbox"}
+    %label maxx
+    %input{:name => "chip[maxx]", :value => @target.maxx, :type => "textbox"}
+    %label maxy
+    %input{:name => "chip[maxy]", :value => @target.maxy, :type => "textbox"}
+    
+    %input{:type => "submit", :value => "Submit"}
+    
+  %h2    Layers
+  - Layer.all(:chip_id => @target.id).each do |layer|
+    %span{:id=>"layer_name"} Name: #{layer.name} ||
+    %span{:id=>"layer_desc"} Desc: #{layer.short_text} ||
+    %span{:id=>"layer_thumb"} thumbnail: #{layer.thumbnail} ||
+    %a{:href => "/admin/layer/edit/#{@target.id}/#{layer.id}"} Edit Layer
+    %br
+  %p
+    %a{:href => "/admin/layer/edit/#{@target.id}/new"} Add new layer

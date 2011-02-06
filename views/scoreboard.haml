@@ -1,0 +1,13 @@
+You have #{@user.points} points. 
+%br
+%br
+=========================
+%div{:id=>"users"}
+  - User.all(:order=> [:points.desc]).each do |user|
+    %div{:id=>"user"}
+      %span #{user.name}
+      %span #{user.points}
+%p
+%br
+%a{:href => "/user/"} Back
+

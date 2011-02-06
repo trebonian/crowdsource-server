@@ -1,0 +1,28 @@
+div.frame {
+ margin-left: 10px;
+ position: relative;
+ width: 800px;
+ height: 550px;
+}
+
+div.chip {
+ background: white;
+ position: absolute;
+ width: 700px;
+ height: 550px;
+ overflow: hidden;
+}
+
+canvas.chip {
+ position: absolute;
+ width: 700px;
+ height: 550px;
+ top: 0px;
+ left: 0px;
+}
+
+button.chip {
+ position: absolute;
+ top: 0px;
+ left: 710px;
+}

@@ -1,0 +1,13 @@
+%h3 List of users:
+%div{:id=>"users"}
+  - @users.each do |user|
+    %div{:id=>"user"}
+      %span{:id=>"user_name"} Name: #{user.name}
+      %span{:id=>"user_name"} Email: #{user.email}
+      %span{:id=>"user_admin"}Admin: #{user.admin}
+      %a{:href=>"/admin/user/edit/#{user.id}"} Edit
+      %a{:href=>"/admin/user/delete/#{user.id}"} Delete
+      
+%p      
+  %a{:href=>"/admin/user/edit/new"} New User
+      

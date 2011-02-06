@@ -1,0 +1,19 @@
+%link{:rel=>'stylesheet', :href=>'/rectdraw.css', :type => "text/css"}
+
+%div{:id=>"display"}
+  %br
+  - if @layer
+    Now showing layer: @#{@layer.id} |  #{@layer.name} | #{@layer.long_text}
+    %br
+  %div{:class=>"frame", :id=>"frame"}
+    %div{:class=>"chip"}
+      %script
+        document.write('<img width=700 height=550 src="/tiles/1/#{session[:y]}-#{session[:x]}#{@layer.itype}.png">\n');
+      %canvas{:class=>"chip", :id=>"rectlayer"}
+      %canvas{:class=>"chip", :id=>"mouselayer"}
+      %canvas{:class=>"chip", :id=>"hitbuffer"}
+    %button{:class=>"chip", :onclick=>"javascript:submit(#{@user.id},#{@tile.id});"} Submit #{@tile.id}
+%script{:type => "text/javascript", :src => "/rectdraw.js"}
+%script
+  setup();
+    

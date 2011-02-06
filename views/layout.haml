@@ -1,0 +1,40 @@
+%html
+  %head
+    %title Polygon Reverse Engineer
+    %meta{"http-equiv" => "Content-Type", "content" => "text/html; charset=iso-8859-1"}
+    %link{:rel=>'stylesheet', :href=>'/stylesheets/style.css', :type => "text/css"}
+    %div{:id=>"errors"}
+      - if @errors
+        #{@errors}
+
+  %body
+    #banner
+      %img{:src=>"/banner.png"}
+    #navigation
+      %a{:href=>'/'}
+        Go back to / 
+    
+    #user
+      - if @user
+        -if @user.admin
+          %br
+          %a{:href => "/admin/user/list"} Manage Users
+        %br
+        ========
+        %br
+        %a{:href => "/user/game"} Play Game
+        %br
+        %a{:href => "/user/scoreboard"} Scoreboard
+        %br
+        %a{:href => "/user/chips"} Chips
+        %br
+        ========
+        %br
+        %a{:href => "/user/changepass"} Change password
+        %br
+        %a{:href => "/logout"} Logout
+    
+    #status
+    = yield
+
+    #footer

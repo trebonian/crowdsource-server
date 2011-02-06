@@ -1,0 +1,15 @@
+%div{:id=> "edit_user"}
+  %form{:id => "user_form", :method => "post", :action => "/admin/user/edit"}
+    %h2 Edit #{@target.name}
+    %input{:name => "id", :value => @target.id, :type => "hidden"}
+
+    %label Name
+    %input{:name => "user[name]", :value => @target.name,   :type => "textbox"}
+    %label Email
+    %input{:name => "user[email]", :value => @target.email, :type => "textbox"}
+    %label Admin: #{@target.admin}
+    %input{:name => "user[admin]", :type => "checkbox"} Toggle Admin?
+    %input{:name => "user[reset_password]", :value => "",   :type => "checkbox"} Reset password?
+    
+    %input{:type => "submit", :value => "Submit"}
+

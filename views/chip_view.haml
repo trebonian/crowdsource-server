@@ -1,0 +1,29 @@
+%h3 Name: #{@chip.name}
+%div{:id=>"chips"}
+  %div{:id=>"chip"}
+    %span{:id=>"chip_desc"} Desc: #{@chip.description}
+    %span{:id=>"chip_url"} 
+      %a{:href => @chip.wikiURL} #{@chip.wikiURL}
+    - if @user.admin
+      %a{:href => "/admin/chip/edit/#{@chip.id}"} Edit Chip
+    %br
+    %h3 Select Layer
+    - Layer.all(:chip_id => @chip.id).each do |layer|
+      %span{:id=>"layer_name"} Name: #{layer.name}
+      %span{:id=>"layer_desc"} itype: #{layer.itype}
+      %span{:id=>"layer_desc"} Desc: #{layer.short_text}
+      %a{:href => "/user/chip/#{@chip.id}/#{layer.id}"} Select
+      %br
+      
+  %div{:id=>"display"}
+    %br
+    - if @layer
+      Now showing layer: @#{@layer.id} |  #{@layer.name} | #{@layer.long_text}
+      %br
+      %a{:href => "/user/chip/#{@chip.id}/#{@layer.id}/left"}   Left
+      %a{:href => "/user/chip/#{@chip.id}/#{@layer.id}/right"}  Right
+      %a{:href => "/user/chip/#{@chip.id}/#{@layer.id}/up"}     Up
+      %a{:href => "/user/chip/#{@chip.id}/#{@layer.id}/down"}   Down
+      %a{:href => "/user/chip/#{@chip.id}/#{@layer.id}/start"}   0,0
+      %br
+      %img{:src => "/user/tile/#{@layer.id}/#{session[:x]}/#{session[:y]}"}

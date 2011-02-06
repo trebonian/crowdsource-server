@@ -1,0 +1,19 @@
+%div{:id=> "edit_layer"}
+  %form{:id => "layer_form", :method => "post", :action => "/admin/layer/edit"}
+    %h2 Edit #{@target.name}
+    %input{:name => "id", :value => @target.id, :type => "hidden"}
+
+    %label Name
+    %input{:name => "layer[name]", :value => @target.name,   :type => "textbox"}
+    %label Chip ID
+    %input{:name => "layer[chip_id]", :value => @target.chip_id,   :type => "textbox"}
+    %label itype
+    %input{:name => "layer[itype]", :value => @target.itype, :type => "textbox"}
+    %label short_text
+    %input{:name => "layer[short_text]", :value => @target.short_text, :type => "textbox"}
+    %label long_text
+    %input{:name => "layer[long_text]", :value => @target.long_text, :type => "textbox"}
+    %label thumbnail
+    %input{:name => "layer[thumbnail]", :value => @target.thumbnail, :type => "textbox"}
+    
+    %input{:type => "submit", :value => "Submit"}

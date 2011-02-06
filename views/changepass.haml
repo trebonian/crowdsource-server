@@ -1,0 +1,14 @@
+%h3 Change Password Form
+
+%form{:id => "change_password", :method => "post", :action => "/user/changepass"}
+  %label Old password
+  %input{:name => "oldpass", :type => "password"}
+  %br
+  %label New password
+  %input{:name => "newpass", :type => "password"}
+  %br
+  %label Confirm password
+  %input{:name => "newpass2", :type => "password"}
+  %br
+  %input{:type => "submit", :value => "Submit"}
+

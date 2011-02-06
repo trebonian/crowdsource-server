@@ -1,0 +1,18 @@
+%h3 List of chips:
+%div{:id=>"chips"}
+  - @chips.each do |chip|
+    %div{:id=>"chip"}
+      %span{:id=>"chip_name"} Name: #{chip.name}
+      %span{:id=>"chip_desc"} Desc: #{chip.description}
+      %span{:id=>"chip_url"} 
+        %a{:href => chip.wikiURL} #{chip.wikiURL}
+      - if @user.admin
+        %a{:href => "/admin/chip/edit/#{chip.id}"} Edit Chip
+      %br
+      %h2
+        %a{:href => "/user/chip/#{chip.id}"} View Chip
+        
+- if @user.admin
+  %br
+  %a{:href => "/admin/chip/edit/new"} Create New Chip
+      

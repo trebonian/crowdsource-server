@@ -1,0 +1,13 @@
+- if @user == nil
+  %h3 ===> LOGIN <===
+  %form{:id => "login", :method => "post", :action => "/login"}
+    %label Username
+    %input{:name => "username", :type => "text"}
+    %br
+    %label Password
+    %input{:name => "password", :type => "password"}
+    %br
+    %input{:type => "submit", :value => "Submit"}
+  %a{:href => "/register"} Register
+- else 
+  Welcome back #{@user.real_name} [#{@user.name}]
